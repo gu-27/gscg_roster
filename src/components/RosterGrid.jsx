@@ -18,7 +18,7 @@ const CLASS_YEARS = [
   { key: 'senior',    label: 'Senior'    },
 ]
 
-function GridCell({ droppableId, people, onDelete }) {
+function GridCell({ droppableId, people, onDelete, onRename }) {
   const { setNodeRef, isOver } = useDroppable({ id: droppableId })
 
   return (
@@ -40,14 +40,14 @@ function GridCell({ droppableId, people, onDelete }) {
         }}
       >
         {people.map((person) => (
-          <DraggablePersonCard key={person.id} person={person} onDelete={onDelete} />
+          <DraggablePersonCard key={person.id} person={person} onDelete={onDelete} onRename={onRename} />
         ))}
       </div>
     </td>
   )
 }
 
-export default function RosterGrid({ people, onDelete }) {
+export default function RosterGrid({ people, onDelete, onRename }) {
   return (
     <div className="px-4 pb-6 overflow-x-auto">
       <div
@@ -109,6 +109,7 @@ export default function RosterGrid({ people, onDelete }) {
                       droppableId={droppableId}
                       people={cellPeople}
                       onDelete={onDelete}
+                      onRename={onRename}
                     />
                   )
                 })}

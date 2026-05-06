@@ -5,7 +5,7 @@ import {
   PointerSensor,
   useSensor,
   useSensors,
-  closestCenter,
+  rectIntersection,
 } from '@dnd-kit/core'
 import { nanoid } from 'nanoid'
 
@@ -125,6 +125,12 @@ export default function App() {
     setShowAddModal(false)
   }
 
+  const handleRename = useCallback((personId, newName) => {
+    setPeople((prev) =>
+      prev.map((p) => (p.id === personId ? { ...p, name: newName } : p))
+    )
+  }, [])
+
   function handleReset() {
     const fresh = createSeedPeople()
     setPeople(fresh)
@@ -133,7 +139,7 @@ export default function App() {
   return (
     <DndContext
       sensors={sensors}
-      collisionDetection={closestCenter}
+      collisionDetection={rectIntersection}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       onDragCancel={handleDragCancel}
@@ -145,8 +151,8 @@ export default function App() {
         />
 
         <main>
-          <UnassignedPool people={people} onDelete={handleDelete} />
-          <RosterGrid people={people} onDelete={handleDelete} />
+          <UnassignedPool people={people} onDelete={handleDelete} onRename={handleRename} />
+          <RosterGrid people={people} onDelete={handleDelete} onRename={handleRename} />
         </main>
       </div>
 

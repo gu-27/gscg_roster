@@ -2,7 +2,7 @@ import React from 'react'
 import { useDroppable } from '@dnd-kit/core'
 import { DraggablePersonCard } from './PersonCard.jsx'
 
-export default function UnassignedPool({ people, onDelete }) {
+export default function UnassignedPool({ people, onDelete, onRename }) {
   const { setNodeRef, isOver } = useDroppable({ id: 'unassigned' })
 
   const unassigned = people.filter((p) => p.role === null || p.classYear === null)
@@ -34,7 +34,7 @@ export default function UnassignedPool({ people, onDelete }) {
           </span>
         ) : (
           unassigned.map((person) => (
-            <DraggablePersonCard key={person.id} person={person} onDelete={onDelete} />
+            <DraggablePersonCard key={person.id} person={person} onDelete={onDelete} onRename={onRename} />
           ))
         )}
       </div>

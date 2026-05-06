@@ -18,8 +18,8 @@ import { PersonCard } from './components/PersonCard.jsx'
 
 const STORAGE_KEY = 'gscg-roster-people'
 
-const VALID_ROLES = new Set(['director', 'pm', 'consultant', 'associate'])
-const VALID_CLASS_YEARS = new Set(['freshman', 'sophomore', 'junior', 'senior', 'abroad', 'ondeck'])
+const VALID_ROLES = new Set(['director', 'pm', 'consultant', 'associate', 'abroad', 'ondeck'])
+const VALID_CLASS_YEARS = new Set(['freshman', 'sophomore', 'junior', 'senior'])
 
 function parseDroppableId(droppableId) {
   if (droppableId === 'unassigned') {

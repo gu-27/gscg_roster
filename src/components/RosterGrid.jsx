@@ -3,19 +3,19 @@ import { useDroppable } from '@dnd-kit/core'
 import { DraggablePersonCard } from './PersonCard.jsx'
 
 const ROLES = [
-  { key: 'director', label: 'Directors', color: '#3B82F6', bg: '#EFF6FF' },
-  { key: 'pm', label: 'Project Managers', color: '#14B8A6', bg: '#F0FDFA' },
-  { key: 'consultant', label: 'Consultants', color: '#6366F1', bg: '#EEF2FF' },
-  { key: 'associate', label: 'Associates', color: '#A855F7', bg: '#FAF5FF' },
+  { key: 'director',  label: 'Directors',       color: '#3B82F6', bg: '#EFF6FF' },
+  { key: 'pm',        label: 'Project Managers', color: '#14B8A6', bg: '#F0FDFA' },
+  { key: 'consultant',label: 'Consultants',      color: '#6366F1', bg: '#EEF2FF' },
+  { key: 'associate', label: 'Associates',       color: '#A855F7', bg: '#FAF5FF' },
+  { key: 'abroad',    label: 'Study Abroad',     color: '#F59E0B', bg: '#FFFBEB' },
+  { key: 'ondeck',    label: 'On Deck',          color: '#64748B', bg: '#F8FAFC' },
 ]
 
 const CLASS_YEARS = [
-  { key: 'freshman', label: 'Freshman' },
+  { key: 'freshman',  label: 'Freshman'  },
   { key: 'sophomore', label: 'Sophomore' },
-  { key: 'junior', label: 'Junior' },
-  { key: 'senior', label: 'Senior' },
-  { key: 'abroad', label: 'Study Abroad' },
-  { key: 'ondeck', label: 'On Deck' },
+  { key: 'junior',    label: 'Junior'    },
+  { key: 'senior',    label: 'Senior'    },
 ]
 
 function GridCell({ droppableId, people, onDelete }) {
